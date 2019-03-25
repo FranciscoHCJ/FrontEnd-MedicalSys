@@ -10,12 +10,23 @@ import { retry, map, filter } from 'rxjs/operators';
 export class RxjsComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
+<<<<<<< HEAD
 
 
   constructor() {
 
     this.subscription = this.regresaObservable()
     .subscribe(
+=======
+
+  constructor() {
+
+
+    this.subscription = this.regresaObservable().pipe(
+      // retry(2)
+    ) // obs
+      .subscribe(
+>>>>>>> 23b9dba9a1b818caef888bf886893aad2cff103a
       numero => console.log('Subs', numero),
       error => console.error('Error en el obs', error ),
       () => console.log('El observador termino!')
@@ -42,6 +53,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
         contador++;
 
+<<<<<<< HEAD
 
         const salida = {
           valor: contador
@@ -51,18 +63,34 @@ export class RxjsComponent implements OnInit, OnDestroy {
         observer.next(salida);
 
 
+=======
+        const salida = {
+          valor: contador
+        };
+
+        observer.next(salida);
+
+
+>>>>>>> 23b9dba9a1b818caef888bf886893aad2cff103a
         // if ( contador === 3 ) {
         //   clearInterval(intervalo);
         //   observer.complete();
         // }
+<<<<<<< HEAD
 
         // if ( contador === 2 ) {
         //   // clearInterval(intervalo);
         //   observer.error('Auxilio!');
         // }
+=======
+>>>>>>> 23b9dba9a1b818caef888bf886893aad2cff103a
 
-      }, 1000 );
+        // if ( contador === 2 ) {
+        //   // clearInterval(intervalo); // agregar
+        //   observer.error('Auxilio!');
+        // }
 
+<<<<<<< HEAD
     }).pipe(
       map( resp => resp.valor),
       filter( ( valor, index ) => {
@@ -77,7 +105,32 @@ export class RxjsComponent implements OnInit, OnDestroy {
         }
       })
     );
+=======
+      }, 500 );
 
+    }).pipe(
+
+      map( resp => {
+        return resp['valor'];
+      }),
+>>>>>>> 23b9dba9a1b818caef888bf886893aad2cff103a
+
+      filter( (valor, index) => {
+        // console.log('Filter', valor, index );
+        if ( (valor % 2) === 1 ) {
+          // impar
+          return true;
+        } else {
+          // par
+          return false;
+        }
+      })
+
+    );
+
+<<<<<<< HEAD
+=======
   }
 
+>>>>>>> 23b9dba9a1b818caef888bf886893aad2cff103a
 }
