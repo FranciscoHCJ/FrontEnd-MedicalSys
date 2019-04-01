@@ -13,13 +13,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Servicios
 import { ServiceModule } from './services/service.module';
 
-
-
-
 // Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+import { HospitalComponent } from './pages/hospitales/hospital.component';
+
 
 
 
@@ -30,6 +29,7 @@ import { RegisterComponent } from './login/register.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    HospitalComponent,
   ],
   imports: [
     BrowserModule,
